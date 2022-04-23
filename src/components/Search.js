@@ -12,7 +12,6 @@ function Search() {
         type="text"
         id="search"
         placeholder="search free stuff"
-        value={""}
         onChange={(e) => console.log(e.target.value)}
       />
       <button type="submit">🔍</button>
