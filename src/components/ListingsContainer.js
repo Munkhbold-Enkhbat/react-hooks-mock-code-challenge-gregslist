@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer() {
+function ListingsContainer({search}) {
 
   const [listings, setListings] = useState([])
 
@@ -10,6 +10,8 @@ function ListingsContainer() {
       .then(res => res.json())
       .then(data => setListings(data))
   }, [])
+
+  const searchedListings = listings.filter(listing => listing.description.includes(search))
 
   function handleRemovingFromList(deletedListing) {
     const updatedListings = listings.filter( listing => listing.id !== deletedListing.id)
